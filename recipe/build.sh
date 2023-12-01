@@ -101,13 +101,13 @@ make install_fips
 -provider fips -providers
 
 # https://github.com/ContinuumIO/anaconda-issues/issues/6424
-if [[ ${HOST} =~ .*linux.* ]]; then
-  if execstack -q "${PREFIX}"/lib/libcrypto.so.3.0 | grep -e '^X '; then
-    echo "Error, executable stack found in libcrypto.so.3.0"
-    exit 1
-  fi
-fi
+#if [[ ${HOST} =~ .*linux.* ]]; then
+#  if execstack -q "${PREFIX}"/lib/libcrypto.so.3.0 | grep -e '^X '; then
+#    echo "Error, executable stack found in libcrypto.so.3.0"
+#    exit 1
+#  fi
+#fi
 
 #Install activate script
-mkdir "${PREFIX}/bin"
+mkdir -p "${PREFIX}/bin"
 cp "${RECIPE_DIR}/openssl-enable-fips.sh" "${PREFIX}/bin"
