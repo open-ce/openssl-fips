@@ -20,5 +20,4 @@ $CONDA_PREFIX/bin/openssl fipsinstall -out $CONDA_PREFIX/ssl/fipsmodule.cnf -mod
 pushd $CONDA_PREFIX  > /dev/null
 sed -i "s:# .include fipsmodule.cnf:.include $(pwd)/ssl/fipsmodule.cnf:" ssl/openssl.cnf
 sed -i 's:# fips = fips_sect:fips = fips_sect:' ssl/openssl.cnf
-sed -i '/\[default_sect\]/{n;s/^# activate = 1/activate=1/;}' ssl/openssl.cnf
 popd > /dev/null
